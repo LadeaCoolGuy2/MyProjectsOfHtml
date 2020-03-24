@@ -1,0 +1,30 @@
+<doctype! html>
+<body>
+  <button id="btn">Open Card</button>
+    <button id="btn2">Open Card</button>
+      <button id="btn3">Open Card</button>
+  <p id="p"></p>
+
+  <style>
+  p {
+    color: purple;
+  }
+  </style>
+  <script>
+  var button = document.getElementById("btn");
+    var button2 = document.getElementById("btn2");
+      var button3 = document.getElementById("btn3");
+
+  button.addEventListener("click", function(){
+    document.getElementById("p").innerHTML = "Happy birthday! congrats dad you are now 45! I pray for your health, and your well being so that you can be happy and healthy each day.Love, Daniel Hyun";
+
+  });
+  button2.addEventListener("click", function(){
+    var prom = window.prompt("Say something");
+
+    prom.value = document.createElement("li");
+
+
+  });
+  </script>
+</body>

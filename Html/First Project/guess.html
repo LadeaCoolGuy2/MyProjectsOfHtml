@@ -1,0 +1,63 @@
+<doctype! html>
+<body>
+  <div id="first"></div>
+  <div id="div1"></div>
+  <p5><strong>The Guessing Game Choose A Mode bellow</strong></p5>
+  <p1></p1><button id="very-easy">Very Easy</button><p2></p2>
+  <button id="easy">Easy</button><p3></p3>
+  <button id="normal">Normal</button>
+  <style>
+  #first {
+    width: 2000px;
+    width: 100px;
+    background-color: black;
+  }
+  #div1 {
+    padding-bottom: 300px;
+  }
+  p1 {
+    padding-right: 600px;
+  }
+  p2 {
+    padding-left: 50px;
+  }
+  button {
+    width: 100px;
+    height: 100px;
+    font-family: cursive;
+    color: white;
+    background-color: blue;
+  }
+  button:hover {
+    background-color: green;
+  }
+  p3 {
+    padding-right: 50px;
+  }
+  body {
+    background-color: red;
+  }
+
+
+  </style>
+
+  <script>
+  var veryEasy = document.getElementById("very-easy");
+    var Easy = document.getElementById("easy");
+      var Normal = document.getElementById("normal");
+    veryEasy.addEventListener("click", function(){
+         var guess = Math.floor((Math.random() * 10) + 1);
+         var amountOfGuesses = 0;
+         while (prompt != guess){
+                var prompt = window.prompt("pick a number between 10 and 0");
+                amountOfGuesses++;
+                if (guess < prompt) {
+                  window.alert("too high!");
+                } else if(guess > prompt) {
+                  window.alert("too low!");
+                }
+         }
+         window.alert("Good Job you got it right in " + amountOfGuesses + " tries");
+    });
+        </script>
+</body>
