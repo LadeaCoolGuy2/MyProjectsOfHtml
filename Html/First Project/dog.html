@@ -1,0 +1,43 @@
+<doctype! html>
+<body>
+  <p id="choice"></p>
+  <img src="https://i.ytimg.com/vi/B26fdsz8xBk/hqdefault.jpg" id="we"></img>
+
+  <style>
+  img {
+    width:300px;
+    height:300px;
+  }
+  </style>
+  <script>
+  var hi = document.getElementById("choice");
+  var we = document.getElementById("we");
+  var roundsMissed = 0;
+  var rounds = 0;
+  var checker1 = 0;
+  setInterval(ok, 5000);
+  function ok(){
+     checker1 = 0;
+    var g = Math.floor((Math.random() * 3) + 1);
+    if (g == 1) {
+      hi.innerHTML = "click to feed me!";
+      we.addEventListener("click", function(){
+        hi.innerHTML = "woof! woof!";
+        rounds++;
+        checker1++;
+      });
+      if (checker1 == 0) {
+        roundsMissed++;
+      }
+    }
+    if (g == 2) {
+      hi.innerHTML = "click to play with me!";
+
+    }
+    if (g == 3) {
+      hi.innerHTML = "click to pet me!";
+    }
+  }
+  </script>
+
+</body>

@@ -1,0 +1,364 @@
+<doctype! html>
+<head>
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+<head>
+<body>
+  <style>
+  #heathbar {
+    width: 200px;
+    height: 50px;
+    background-color: green;
+    color: white;
+    font-family: cursive;
+    text-align: center;
+  }
+  #badarea {
+    display: grid;
+    grid-template-columns: 5% 5% 5% 5% 5% 5%;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .Droom {
+    width: 50px;
+    height: 50px;
+    background-color: #7BCAE8;
+
+
+  }
+  .d {
+    background-color: #F2D4A3;
+    width: 50px;
+    height: 50px;
+  }
+
+  </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <p id="n1"></p>
+    <p id="tr">Rounds:0</p>
+
+ <div id="totalheath">
+  <div id="heathbar" v-bind:style="{ width: heath + '%' }">Heath</div>
+  <div id="live">HP: {{ heath }}</div>
+</div>
+  <div id="point">Points:0</div>
+    <div id="badarea">
+
+        <div id="box1" class="d"></div>
+        <!--row 1 -->
+        <div id="box2" class="Droom"></div>
+        <div id="box3" class="Droom">  </div>
+        <div id="box4" class="Droom"></div>
+
+          <div id="box5" class="Droom"></div>
+        <div id="box6" class="Droom"></div>
+       <!--New area -->
+        <div id="box7" class="d"></div>
+        <!-- row1 -->
+        <div id="box8" class="Droom"></div>
+        <div id="box9" class="Droom"></div>
+        <div id="box10" class="Droom"></div>
+        <div id="box11" class="Droom"></div>
+        <div id="box12" class="Droom"></div>
+        <!-- New Area -->
+        <div id="box13" class="d" ></div>
+        <!--row1 -->
+        <div id="box14" class="Droom"></div>
+        <div id="box15" class="Droom"></div>
+        <div id="box16" class="Droom"></div>
+        <div id="box17" class="Droom"></div>
+        <div id="box18" class="Droom"></div>
+    </div>
+  <script>
+  new Vue({
+    el: "#totalheath",
+    data: {
+      heath: 100
+    },
+    methods: {
+      checkHP: function(){
+        if (progressAll == 6 && shot1 == false) {
+          this.heath -= 25;
+        }
+      }
+    }
+  })
+  var b1 = document.getElementById("box1");
+  var b7 = document.getElementById("box7");
+  var b13 = document.getElementById("box13");
+  // Row1 DONT TOUCH!!
+  var b2 = document.getElementById("box2");
+  var b3 = document.getElementById("box3");
+  var b4 = document.getElementById("box4");
+  var b5 = document.getElementById("box5");
+  var b6 = document.getElementById("box6");
+  var b9 = document.getElementById("box9")
+  //new row2
+  var b8 = document.getElementById("box8");
+  var b10 = document.getElementById("box10");
+  var b11 = document.getElementById("box11")
+  var b12 = document.getElementById("box12");
+  var b14 = document.getElementById("box14");
+  var b15 = document.getElementById("box15");
+  var b16 = document.getElementById("box16");
+  var b17 = document.getElementById("box17");
+  var b18 = document.getElementById("box18");
+  var p = document.getElementById("point");
+  var roundTimer = 5000;
+  var zomF = 10000;
+  var x = 50;
+  var progressAll = 0;
+ var livesLeft = 100;
+ var live = document.getElementById("live");
+var points = 0;
+  var gStartLoop = setInterval(gameLoop, roundTimer)
+
+  function gameLoop(){
+    progressAll++;
+    if (progressAll == 1) {
+      b6.style = "background-color: #3DDE19;"
+      b12.style = "background-color: #3DDE19;"
+      b18.style = "background-color: #3DDE19;"
+    }
+    if (progressAll == 2) {
+      b6.style = "background-color: #7BCAE8;"
+      b12.style = "background-color: #7BCAE8;"
+      b18.style = "background-color: #7BCAE8;"
+      if (shot1 == false) {
+      b5.style = "background-color: #3DDE19;"
+    }
+    if (shot2 == false) {
+      b11.style = "background-color: #3DDE19;"
+    }
+    if (shot3 == false) {
+      b17.style = "background-color: #3DDE19;"
+    }
+    }
+    if (progressAll == 3) {
+      b5.style = "background-color: #7BCAE8;"
+      b17.style = "background-color: #7BCAE8;"
+      b11.style = "background-color: #7BCAE8;"
+    if (shot1 == false) {
+      b4.style = "background-color: #3DDE19;"
+    }
+    if (shot2 == false){
+      b10.style = "background-color: #3DDE19;"
+    }
+    if (shot3 == false) {
+      b16.style = "background-color: #3DDE19;"
+    }
+    }
+    if (progressAll == 4) {
+      b4.style = "background-color: #7BCAE8;"
+      b10.style = "background-color: #7BCAE8;"
+      b16.style = "background-color: #7BCAE8;"
+      if (shot1 == false) {
+      b3.style = "background-color: #3DDE19;"
+    }
+    if (shot2 == false) {
+      b9.style = "background-color: #3DDE19;"
+    }
+    if (shot3 == false) {
+      b15.style = "background-color: #3DDE19;"
+    }
+    }
+    if (progressAll == 5) {
+      b3.style = "background-color: #7BCAE8;"
+      b9.style = "background-color: #7BCAE8;"
+      b15.style = "background-color: #7BCAE8;"
+      if (shot1 == false) {
+      b2.style = "background-color: #3DDE19;"
+    }
+    if (shot2 == false) {
+      b8.style = "background-color: #3DDE19;"
+    }
+    if (shot3 == false) {
+      b14.style = "background-color: #3DDE19;"
+    }
+
+    }
+    if (progressAll == 6 && shot1 == false && shot2 == false && shot3 == false) {
+       livesLeft -= 25;
+       live.innerHTML = "HP:" + livesLeft;
+       window.alert("You Lost!");
+       progressAll -= 6;
+       b2.style = "background-color: #7BCAE8;"
+       b8.style = "background-color: #7BCAE8;"
+       b14.style = "background-color: #7BCAE8;"
+       shot1 = false;
+       shot2 = false;
+       shot3 = false;
+       checkHP();
+       roundTimer -= 100;
+
+    }
+    if (progressAll == 6 && shot1 == false && shot2 == false) {
+       livesLeft -= 25;
+       live.innerHTML = "HP:" + livesLeft;
+       window.alert("You Lost!");
+       progressAll -= 6;
+       b2.style = "background-color: #7BCAE8;"
+       b8.style = "background-color: #7BCAE8;"
+       b14.style = "background-color: #7BCAE8;"
+       shot1 = false;
+       shot2 = false;
+       shot3 = false;
+       checkHP();
+       roundTimer -= 100;
+
+    }
+    if (progressAll == 6 && shot2 == false && shot3 == false) {
+       livesLeft -= 25;
+       live.innerHTML = "HP:" + livesLeft;
+       window.alert("You Lost!");
+       progressAll -= 6;
+       b2.style = "background-color: #7BCAE8;"
+       b8.style = "background-color: #7BCAE8;"
+       b14.style = "background-color: #7BCAE8;"
+       shot1 = false;
+       shot2 = false;
+       shot3 = false;
+       checkHP();
+       roundTimer -= 100;
+
+    }
+    if (progressAll == 6 && shot1 == false && shot3 == false) {
+       livesLeft -= 25;
+       live.innerHTML = "HP:" + livesLeft;
+       window.alert("You Lost!");
+       progressAll -= 6;
+       b2.style = "background-color: #7BCAE8;"
+       b8.style = "background-color: #7BCAE8;"
+       b14.style = "background-color: #7BCAE8;"
+       shot1 = false;
+       shot2 = false;
+       shot3 = false;
+       checkHP();
+       roundTimer -= 100;
+
+    }
+    if (shot1 == true && shot2 == true && shot3 == true) {
+      points += pointAdded;
+      pointAdded += 2;
+      progressAll = 0;
+      rounds++;
+      rUpdate();
+      allTrue = false;
+      shot1 = false;
+      shot2 = false;
+      shot3 = false;
+      window.alert("You Won!!");
+      roundTimer -= 1000;
+    }
+  }
+  var rounds = 0;
+  var pointAdded = 1;
+  var shot1 = false;
+  var shot2 = false;
+  var shot3 = false;
+  var r = document.getElementById("tr");
+  function rUpdate(){
+    r.innerHTML = "Rounds:" + rounds;
+  }
+  b6.addEventListener("click", function(){
+    if (progressAll == 1) {
+      shot1 = true;
+      b6.style = "background-color: #7BCAE8;"
+    }
+  });
+  b5.addEventListener("click", function(){
+    if (progressAll == 2) {
+      shot1 = true;
+      b5.style = "background-color: #7BCAE8;"
+    }
+  });
+  b4.addEventListener("click", function(){
+    if (progressAll == 3) {
+      shot1 = true;
+      b4.style = "background-color: #7BCAE8;"
+    }
+  });
+  b3.addEventListener("click", function(){
+    if (progressAll == 4) {
+      shot1 = true;
+      b3.style = "background-color: #7BCAE8;"
+    }
+  });
+  b2.addEventListener("click", function(){
+    if (progressAll == 5) {
+      shot1 = true;
+      b2.style = "background-color: #7BCAE8;"
+    }
+  });
+  // first row
+  b12.addEventListener("click", function(){
+    if (progressAll == 1) {
+      shot2 = true;
+      b12.style = "background-color: #7BCAE8;"
+    }
+  });
+  b11.addEventListener("click", function(){
+    if (progressAll == 2) {
+      shot2 = true;
+      b11.style = "background-color: #7BCAE8;"
+    }
+  });
+  b10.addEventListener("click", function(){
+    if (progressAll == 3) {
+      shot2 = true;
+      b10.style = "background-color: #7BCAE8;"
+    }
+  });
+  b9.addEventListener("click", function(){
+    if (progressAll == 4) {
+      shot2 = true;
+      b9.style = "background-color: #7BCAE8;"
+    }
+  });
+  b8.addEventListener("click", function(){
+    if (progressAll == 5) {
+      shot2 = true;
+      b8.style = "background-color: #7BCAE8;"
+    }
+  });
+  // second row
+  b18.addEventListener("click", function(){
+    if (progressAll == 1) {
+      shot3 = true;
+      b18.style = "background-color: #7BCAE8;"
+    }
+  });
+  b17.addEventListener("click", function(){
+    if (progressAll == 2) {
+      shot3= true;
+      b17.style = "background-color: #7BCAE8;"
+    }
+  });
+  b16.addEventListener("click", function(){
+    if (progressAll == 3) {
+      shot3 = true;
+      b16.style = "background-color: #7BCAE8;"
+    }
+  });
+  b15.addEventListener("click", function(){
+    if (progressAll == 4) {
+      shot3 = true;
+      b15.style = "background-color: #7BCAE8;"
+    }
+  });
+  b14.addEventListener("click", function(){
+    if (progressAll == 5) {
+      shot3 = true;
+      b14.style = "background-color: #7BCAE8;"
+    }
+  });
+  //third row
+  function updatePointsg(){
+    points++;
+    p.innerHTML = "Points:" + points;
+  }
+
+  </script>
+</body>

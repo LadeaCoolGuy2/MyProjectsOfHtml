@@ -1,0 +1,26 @@
+<doctype! html>
+<body>
+
+  <button id="mine1">Click To Start Mining!</button>
+  <button onclick="mine2()">coin gift1</button>
+  <button id="end">Click to end mining!</button>
+  <style>
+  </style>
+<script>
+
+var coinline = 0;
+var btn1 = document.getElementById("mine1");
+var end = document.getElementById("end");
+btn1.addEventListener("click", function(){
+ coinline++;
+});
+end.addEventListener("click", function(){
+  document.write(coinline);
+});
+function mine2() {
+  coinline = 100;
+  }
+
+
+</script>
+</body>

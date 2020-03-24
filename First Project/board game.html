@@ -1,0 +1,121 @@
+<doctype! html>
+<body>
+  <title>Board Game</title>
+  <p id="diceAmount"></p>
+  <p id="roll">Click to roll</p>
+  <div id="board">
+    <p id="box1" class="button"></p>
+      <p id="box2" class="button"></p>
+      <p id="box3" class="button"></p>
+        <p id="box4" class="button"></p>
+  </div>
+  <div id="board2">
+    <p id="box5" class="button"></p>
+      <p id="box6" class="button"></p>
+      <p id="box7" class="button"></p>
+        <p id="box8" class="button"></p>
+
+  </div>
+  <style>
+  div {
+    text-align: center;
+    border-style: solid;
+    border-radius: 25px;
+    width: 300px;
+    height: 300px;
+  }
+  .button {
+    background-color: black;
+    width: 50px;
+    height: 50pX;
+  }
+  </style>
+
+  <script>
+  var die = document.getElementById("diceAmount");
+  var box8 = document.getElementById("box8");
+  var box7 = document.getElementById("box7");
+  var box6 = document.getElementById("box6");
+  var box5 = document.getElementById("box5");
+  var box4 = document.getElementById("box4");
+  var box3 = document.getElementById("box3");
+  var box2 = document.getElementById("box2");
+  var box1 = document.getElementById("box1");
+  var roll = document.getElementById("roll");
+  var sd = 0;
+  var wonUser = true;
+  var wonComp = false;
+  var turns = 0;
+  var compProgress = 0;
+ var userProgress = 0;
+  if (turns == 0) {
+    roll.addEventListener("click", function(){
+      var guess = Math.floor((Math.random() * 4) + 1);
+      die.innerHTML = "You Rolled a " + guess + "!";
+      turns++;
+      userProgress += guess;
+      if (userProgress == 1) {
+        box1.style = "background-color: red;"
+        box2.style = "background-color: black;"
+        box3.style = "background-color: black;"
+        box4.style = "background-color: black;"
+      }
+      if (userProgress == 2) {
+        box2.style = "background-color: red;"
+        box3.style = "background-color: black;"
+        box1.style = "background-color: black;"
+        box4.style = "background-color: black;"
+      }
+      if(userProgress == 3) {
+        box3.style = "background-color: red"
+        box2.style = "background-color: black;"
+        box1.style = "background-color: black;"
+        box4.style = "background-color: black;"
+      }
+      if(userProgress == 4) {
+        box4.style = "background-color: red"
+        box2.style = "background-color: black;"
+        box3.style = "background-color: black;"
+        box1.style = "background-color: black;"
+        window.alert("You Won!");
+      }
+      window.alert("Its the opponets turn!");
+     var guess2 = Math.floor((Math.random() * 4) + 1);
+     window.alert("The Opponet Rolled a " + guess2 + "!");
+     compProgress += guess2;
+     if (compProgress >= 4) {
+       var compProgress = 4;
+     }
+     if (compProgress == 1) {
+       box5.style = "background-color: red;"
+       box6.style = "background-color: black;"
+       box7.style = "background-color: black;"
+       box8.style = "background-color: black;"
+     }
+     if (compProgress == 2) {
+       box6.style = "background-color: red;"
+       box5.style = "background-color: black;"
+       box7.style = "background-color: black;"
+       box8.style = "background-color: black;"
+     }
+     if(compProgress == 3) {
+       box7.style = "background-color: red"
+       box5.style = "background-color: black;"
+       box6.style = "background-color: black;"
+       box8.style = "background-color: black;"
+     }
+     if(compProgress == 4) {
+       box8.style = "background-color: red"
+       box5.style = "background-color: black;"
+       box6.style = "background-color: black;"
+       box7.style = "background-color: black;"
+       window.alert("The Opponet Won!");
+     }
+  });
+
+  }
+
+
+
+  </script>
+</body>

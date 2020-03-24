@@ -1,0 +1,123 @@
+<doctype! html>
+<body>
+  <title>Epic Fight</title>
+
+      <p id="start">Start</p>
+    <p id="battle"></p>
+    <p id="shop"></p>
+    <p id="equip"></p>
+    <p id="Moves"></p>
+    <p id="Punch"></p>
+    <p id="back1"></p>
+    <p id="arena"></p>
+    <p id="move1"></p>
+    <p id="comphealth"></p>
+    <p id="userheath"></p>
+  <style>
+
+
+  </style>
+  <script>
+  function updateNow1() {
+    comphealth.innerHTML = compHP;
+    userHP.innerHTML = userHP;
+  }
+  var arenaLevel = 0;
+  var compHP = 0;
+  var userHP = 0;
+  var check1 = 0;
+  var arena = document.getElementById("arena");
+   var equip = document.getElementById("equip");
+   var comphealth = document.getElementById("comphealth");
+   var userhealth = document.getElementById("userhealth");
+   var attack1 = document.getElementById("move1");
+  var coins = 0;
+  var move1 = document.getElementById("Punch");
+  var moves = document.getElementById("Moves");
+  var start = document.getElementById("start");
+  var back1 = document.getElementById("back1");
+  var mainMenu = document.getElementById("mainmenu");
+  var shop = document.getElementById("shop");
+  var battle = document.getElementById("battle");
+  start.addEventListener("click", function(){
+    start.innerHTML = "";
+    shop.innerHTML = "Shop";
+    battle.innerHTML = "Battle!";
+    arena.innerHTML = "Arena: Training Camp";
+    shop.addEventListener("click", function(){
+      back1.innerHTML = "Back";
+      shop.innerHTML = "";
+      battle.innerHTML = "";
+      moves.innerHTML = "Moves";
+      move1.innerHTML = "Punch: 100c";
+      equip.innerHTML = "Equip";
+      arena.innerHTML = "";
+      equip.addEventListener("click", function(){
+        if (check1 >= 0) {
+          window.alert("Punch Attack Equiped");
+
+        }
+      });
+      move1.addEventListener("click", function(){
+        if (coins >= 100) {
+          coins -= 100;
+          window.alert("Purchased!");
+          check1++;
+        }
+      });
+      back1.addEventListener("click", function(){
+        back1.innerHTML = "";
+        shop.innerHTML = "Shop";
+        battle.innerHTML = "Battle!";
+        moves.innerHTML = "";
+        move1.innerHTML = "";
+        equip.innerHTML = "";
+      });
+    });
+    battle.addEventListener("click", function(){
+      back1.innerHTML = "";
+      shop.innerHTML = "";
+      battle.innerHTML = "";
+      moves.innerHTML = "";
+      move1.innerHTML = "";
+      equip.innerHTML = "";
+      arena.innerHTML = "";
+      start.innerHTML = "";
+      window.alert("...");
+      window.alert("..");
+      window.alert(".");
+      window.alert("Opponet Found!");
+      window.alert("Fight!");
+      if (arenaLevel <= 0) {
+        compHP = 5;
+        userHP = 5;
+        updateNow1();
+      }
+
+
+      attack1.addEventListener("click", function(){
+            attack1.innerHTML = "Mouth Blow";
+        var guess = Math.floor((Math.random() * 2) + 1);
+        if (guess == 1) {
+          window.alert("Attack Missed!");
+
+        }
+        if (guess == 2) {
+        if (guess3 == 2) {
+          window.alert("Attack Hit!");
+          compHP -= 2;
+            window.alert("Opponet used mouth blow!");
+            userHP -= 1;
+            updateNow1();
+
+        }
+      }
+
+
+      });
+
+    });
+
+  });
+  </script>
+</body>

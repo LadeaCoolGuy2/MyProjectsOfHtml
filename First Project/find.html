@@ -1,0 +1,297 @@
+<doctype! html>
+<body>
+  <div id="mainGameArea">
+    <p id="coincount">0c</p>
+  <p id="start">Start</p>
+  <p id="shop">Shop</p>
+  <p id="entercode"></p>
+  <p id="equip"></p>
+  <pp id="backs"></p>
+  <p id="door"></p>
+
+  <p id="btn1" class="game"></p>
+  <p id="btn2" class="game"></p>
+  <p id="btn3" class="game"></p>
+  <p id="btn4" class="game"></p>
+  <p id="btn5" class="game"></p>
+  <p id="btn6" class="game"></p>
+  <p id="btn7" class="game"></p>
+  <p id="btn8" class="game"></p>
+  <p id="end"></p>
+  </div>
+
+
+
+  <style>
+  #mainGameArea {
+    border-style: solid;
+    border-color: red;
+    border-radius: 25px;
+    width: 300px;
+    height: 700px;
+    text-align: center;
+  }
+  .game {
+    width: 50px;
+    height: 50px;
+
+  }
+
+  </style>
+  <script>
+  var equip = document.getElementById("equip");
+  var code = document.getElementById("entercode");
+  var backs = document.getElementById("backs");
+  var shop = document.getElementById("shop");
+  var back = document.getElementById("end");
+  var door = document.getElementById("door");
+  var start = document.getElementById("start");
+  var coincount = document.getElementById("coincount");
+  var btn1 = document.getElementById("btn1");
+  var btn2 = document.getElementById("btn2");
+  var btn3 = document.getElementById("btn3");
+  var btn4 = document.getElementById("btn4");
+  var btn5 = document.getElementById("btn5");
+  var btn6 = document.getElementById("btn6");
+  var btn7 = document.getElementById("btn7");
+  var btn8 = document.getElementById("btn8");
+  var ch1 = document.getElementById("chance1");
+  var coins = 0;
+    function updateThings2(){
+      door.innerHTML = doorsLeft;
+    }
+  var doorsLeft = 5;
+  var time = 0;
+  var chances = 3;
+  var chosenNot1 = 0;
+    var chosenNot2 = 0;
+    var chosenNot3 = 0;
+      var chosenNot4 = 0;
+      var chosenNot5 = 0;
+        var chosenNot6 = 0;
+        var chosenNot7 = 0;
+          var chosenNot8 = 0;
+          var sand = 0;
+
+  shop.addEventListener("click", function(){
+
+    btn1.style = "background-color: white;"
+    btn2.style = "background-color: white;"
+    btn3.style = "background-color: white;"
+    btn4.style = "background-color: white;"
+    btn5.style = "background-color: white;"
+    btn6.style = "background-color: white;"
+    btn7.style = "background-color: white;"
+    btn8.style = "background-color: white;"
+    door.innerHTML = "";
+    backs.innerHTML = "Back";
+    equip.innerHTML = "Click To Equip Skins!";
+    code.innerHTML = "Enter a Code"
+    start.innerHTML = "";
+    coins.innerHTML = "";
+    shop.innerHTML = "Shop";
+    code.addEventListener("click", function(){
+      var codeCheck = window.prompt("Enter Code: ");
+      if (codeCheck == "goodgame!") {
+        window.alert("Valid!");
+        window.alert("You unlocked sand!");
+        sand++;
+      } else {
+        window.alert("Invalid!");
+      }
+    });
+    equip.addEventListener("click", function(){
+      if (sand >= 1) {
+        window.alert("sand skin equiped!");
+
+      }
+    });
+    backs.addEventListener("click", function(){
+      start.innerHTML = "Start";
+      coincount.innerHTML = coins;
+      backs.innerHTML = "";
+      code.innerHTML = "";
+      equip.innerHTML = "";
+    });
+  });
+  start.addEventListener("click", function(){
+    btn1.style = "background-color: black;"
+    shop.innerHTML = "";
+    door.innerHTML = "5";
+    
+      btn2.style = "background-color: black;"
+      btn3.style = "background-color: black;"
+      btn4.style = "background-color: black;"
+      btn5.style = "background-color: black;"
+      btn6.style = "background-color: black;"
+      btn7.style = "background-color: black;"
+      btn8.style = "background-color: black;"
+
+    back.innerHTML = "Click To Escape";
+    back.addEventListener("click", function(){
+      if (chances <= 0 || doorsLeft != 0) {
+        window.alert("You Lost!");
+        btn1.style = "background-color: white;"
+        btn2.style = "background-color: white;"
+        btn3.style = "background-color: white;"
+        btn4.style = "background-color: white;"
+        btn5.style = "background-color: white;"
+        btn6.style = "background-color: white;"
+        btn7.style = "background-color: white;"
+        btn8.style = "background-color: white;"
+        door.innerHTML = "";
+        back.innerHTML = "";
+        start.innerHTML = "Start";
+        coincount.innerHTML = coins;
+        shop.innerHTML = "Shop";
+      }
+      if (doorsLeft == 0 && chances != 0) {
+        window.alert("You Win!");
+        btn1.style = "background-color: white;"
+        btn2.style = "background-color: white;"
+        btn3.style = "background-color: white;"
+        btn4.style = "background-color: white;"
+        btn5.style = "background-color: white;"
+        btn6.style = "background-color: white;"
+        btn7.style = "background-color: white;"
+        btn8.style = "background-color: white;"
+        door.innerHTML = "";
+        back.innerHTML = "";
+        start.innerHTML = "Start";
+        coins += 10;
+        coincount.innerHTML = coins;
+        shop.innerHTML = "Shop";
+      }
+    });
+    start.innerHTML = "";
+    var guess = Math.floor((Math.random() * 8) + 1);
+        var guess2 = Math.floor((Math.random() * 8) + 1);
+        var guess3 = Math.floor((Math.random() * 8) + 1);
+
+
+        btn1.addEventListener("click", function(){
+          if (guess == 1 || guess2 == 1 || guess3 == 1 && chosenNot1 == 0) {
+            window.alert("You Picked The Wong Door!");
+            chosenNot1++;
+            btn1.style = "background-color: red;"
+            chances--;
+
+          } if (chosenNot1 == 0) {
+            window.alert("You Clicked The Right Door!");
+            chosenNot1++;
+            btn1.style = "background-color: green;"
+            doorsLeft--;
+            updateThings2();
+
+          }
+        });
+        btn2.addEventListener("click", function(){
+          if (guess == 2 || guess2 == 2 || guess3 == 2 && chosenNot2 == 0) {
+            window.alert("You Picked The Wong Door!");
+            chosenNot2++;
+            btn2.style = "background-color: red;"
+            chances--;
+
+          } if (chosenNot2 == 0) {
+            window.alert("You Clicked The Right Door!");
+            chosenNot2++;
+            btn2.style = "background-color: green;"
+            doorsLeft--;
+            updateThings2();
+          }
+        });
+        btn3.addEventListener("click", function(){
+          if (guess == 3 || guess2 == 3 || guess3 == 3 && chosenNot3 == 0) {
+            window.alert("You Picked The Wong Door!");
+            chosenNot3++;
+            chances--;
+
+            btn3.style = "background-color: red;"
+          } if(chosenNot3 == 0) {
+            window.alert("You Clicked The Right Door!");
+            chosenNot3++;
+            btn3.style = "background-color: green;"
+            doorsLeft--;
+            updateThings2();
+          }
+        });
+        btn4.addEventListener("click", function(){
+          if (guess == 4 || guess2 == 4 || guess3 == 4 && chosenNot4 == 0) {
+            window.alert("You Picked The Wong Door!");
+            chosenNot4++;
+            chances--;
+            btn4.style = "background-color: red;"
+
+          } if (chosenNot4 == 0) {
+            window.alert("You Clicked The Right Door!");
+            chosenNot4++;
+            btn4.style = "background-color: green;"
+            doorsLeft--;
+            updateThings2();
+          }
+        });
+        btn5.addEventListener("click", function(){
+          if (guess == 5 || guess2 == 5 || guess3 == 5 && chosenNot5 == 0) {
+            window.alert("You Picked The Wong Door!");
+            chosenNot5++;
+            btn5.style = "background-color: red;"
+            chances--;
+
+          } if (chosenNot5 == 0) {
+            window.alert("You Clicked The Right Door!");
+            chosenNot5++;
+            btn5.style = "background-color: green;"
+            doorsLeft--;
+            updateThings2();
+          }
+        });
+        btn6.addEventListener("click", function(){
+          if (guess == 6 || guess2 == 6 || guess3 == 6 && chosenNot6 == 0) {
+            window.alert("You Picked The Wong Door!");
+            chosenNot6++;
+            btn6.style = "background-color: red;"
+            chances--;
+            updateThings();
+          } if (chosenNot6 == 0) {
+            window.alert("You Clicked The Right Door!");
+            chosenNot6++;
+            btn6.style = "background-color: green;"
+            doorsLeft--;
+            updateThings2();
+          }
+        });
+        btn7.addEventListener("click", function(){
+          if (guess == 7 || guess2 == 7 || guess3 == 7 && chosenNot7 == 0) {
+            window.alert("You Picked The Wong Door!");
+            chosenNot7++;
+            btn7.style = "background-color: red;"
+            chances--;
+
+          } if (chosenNot7 == 0) {
+            window.alert("You Clicked The Right Door!");
+            chosenNot7++;
+            btn7.style = "background-color: green;"
+            doorsLeft--;
+            updateThings2();
+          }
+        });
+        btn8.addEventListener("click", function(){
+          if (guess == 8 || guess2 == 8 || guess3 == 8 && chosenNot8 == 0) {
+            window.alert("You Picked The Wong Door!");
+            chosenNot8++;
+            btn8.style = "background-color: red;"
+            chances--;
+
+          } if (chosenNot8 == 0) {
+            window.alert("You Clicked The Right Door!");
+            chosenNot8++;
+            btn8.style = "background-color: green;"
+            doorsLeft--;
+            updateThings2();
+          }
+ });
+  });
+
+
+  </script>
+</body>

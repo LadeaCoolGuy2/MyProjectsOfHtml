@@ -1,0 +1,158 @@
+<doctype! html>
+<body>
+  <p2 id="start">Click to Start</p2>
+
+  <p1 id="main-menu"></p1>
+  <p id="easy"></p>
+  <p id="normal"></p>
+  <p id="hard"></p>
+  <p id="back"></p>
+  <div id="img1"></div>
+    <div id="img2" ></div>
+      <div id="img3" ></div>
+        <div id="img4" ></div>
+          <div id="img5" ></div>
+            <div id="img6" ></div>
+              <div id="img7" ></div>
+                <div id="img8" ></div>
+                  <div id="img9"></div>
+                    <div id="img10" ></div>
+
+    <style>
+    img {
+      width:200;
+      height:300;
+    }
+    p1 {
+      background-color: black;
+    }
+  p {
+    background-color: blue;
+    width: 100px;
+    height: 50px;
+    color:white;
+    font-family: cursive;
+    text-align: center;
+  }
+  p:hover {
+    width: 125px;
+    height: 75;
+    background-color: green;
+  }
+  </style>
+  <script>
+  var easy = document.getElementById("easy");
+  var normal = document.getElementById("normal");
+  var hard = document.getElementById("hard");
+ var start = document.getElementById("start");
+ var menu = document.getElementById("main-menu");
+ var back = document.getElementById("back");
+ var img1 = document.getElementById("img1");
+  var img2 = document.getElementById("img2");
+  var img3 = document.getElementById("img3");
+   var img4 = document.getElementById("img4");
+   var img5 = document.getElementById("img5");
+    var img6 = document.getElementById("img6");
+    var img7 = document.getElementById("img7");
+     var img8 = document.getElementById("img8");
+     var img9 = document.getElementById("img9");
+      var img10 = document.getElementById("img10");
+ back.style = "background-color: white;"
+ menu.style = "background-color: white;"
+ easy.style = "background-color: white;"
+ normal.style = "background-color: white;"
+ hard.style = "background-color: white;"
+ menu.innerHTML = "";
+
+ start.addEventListener("click", function(){
+   start.innerHTML = "";
+   start.style = "background-color: white;"
+   back.style = "background-color: blue;"
+
+   easy.style = "background-color: blue;"
+   normal.style = "background-color: blue;"
+   hard.style = "background-color: blue;"
+   back.innerHTML = "Back <-";
+   menu.innerHTML = "Main Menu";
+   easy.innerHTML = "Easy";
+   normal.innerHTML = "Normal";
+   hard.innerHTML = "Hard";
+
+
+ });
+ back.addEventListener("click", function(){
+   start.innerHTML = "Click to Start";
+   start.style = "background-color: blue;"
+   back.style = "background-color: white;"
+   menu.style = "background-color: white;"
+   easy.style = "background-color: white;"
+   normal.style = "background-color: white;"
+   hard.style = "background-color: white;"
+   back.innerHTML = "";
+   menu.innerHTML = "";
+   easy.innerHTML = "";
+   normal.innerHTML = "";
+   hard.innerHTML = "";
+
+ });
+ easy.addEventListener("click", function(){
+     var guess = Math.floor((Math.random() * 10) + 1);
+     var easyLimit = 10;
+     var easy2 = 0;
+     start.innerHTML = "";
+     start.style = "background-color: white;"
+     back.style = "background-color: white;"
+     menu.style = "background-color: white;"
+     easy.style = "background-color: white;"
+     normal.style = "background-color: white;"
+     hard.style = "background-color: white;"
+     back.innerHTML = "";
+     menu.innerHTML = "";
+     easy.innerHTML = "";
+     normal.innerHTML = "";
+     hard.innerHTML = "";
+     start.innerHTML = "";
+     if (guess == 1 && easy2 < easyLimit) {
+       easy2++;
+       img1.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+     if (guess == 2 && easy2 < easyLimit) {
+       easy2++;
+       img2.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+     if (guess == 3 && easy2 < easyLimit) {
+       easy2++;
+       img3.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+     if (guess == 4 && easy2 < easyLimit) {
+       easy2++;
+       img4.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+     if (guess == 5) {
+       easy2++;
+       img5.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+     if (guess == 6) {
+       easy2++;
+       img6.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+     // 79222
+     if (guess == 7) {
+       easy2++;
+       img7.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+     if (guess == 8) {
+       easy2++;
+       img8.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+     if (guess == 9) {
+       easy2++;
+       img9.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+     if (guess == 10) {
+       easy2++;
+       img10.src ="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Fist.svg/1200px-Fist.svg.png";
+     }
+ });
+  </script>
+</body>

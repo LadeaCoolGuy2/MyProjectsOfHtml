@@ -1,0 +1,37 @@
+<doctype! html>
+<body>
+  <canvas id="gameScreen" width="500px" height="500px"></canvas>
+  <title>Astriods</title>
+  <style>
+
+  </style>
+  <script>
+  const ship_size = 30;
+
+
+  var FPS = 30;
+  var canv = document.getElementById("gameScreen");
+  var ctx = canv.getContext("2d");
+  var ship {
+    x: canv.width / 2,
+    y: canv.height / 2,
+    r: ship_size / 2,
+    a: 90 / 180 * Math.PI
+  }
+  setInterval(update(), 1000 / FPS);
+  function update(){
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canv.width, canv.height);
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = ship_size / 20;
+    ctx.beginPath();
+    ctx.moveTo(
+      ship.x + ship.r * Math.cos(ship.a),
+      ship.y + ship.r * Math.sin(ship.a)
+
+
+    );
+  }
+  </script>
+
+</body>

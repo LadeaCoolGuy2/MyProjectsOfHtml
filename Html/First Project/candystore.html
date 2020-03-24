@@ -1,0 +1,53 @@
+<doctype! html>
+<body>
+  <p id="welcome">Welcome To Daniel's Candy Shop!</p>
+  <p id="products" class="nav">Products</p>
+  <img id="firstproduct"></img>
+  <p id="gummyworms"></p>
+  <p id="popular" class="nav">Popular</p>
+  <p id="back"></p>
+  <style>
+  .nav {
+    background-color: #F5DA81;
+    width: 100;
+    height: 50;
+    text-align: center;
+  }
+  body {
+    background-color: #FE9A2E;
+  }
+  #gummyworms {
+    width: 100;
+    height: 50;
+    text-align: center;
+  }
+  .nav:hover {
+    background-color: #FACC2E;
+  }
+  #firstproduct {
+    width: 100;
+    height: 50;
+  }
+  </style>
+  <script>
+
+  var welcome = document.getElementById("welcome");
+  var products = document.getElementById("products");
+  var popular = document.getElementById("popular");
+  var back = document.getElementById("back");
+  var product1IMG = document.getElementById("firstproduct");
+  var product1 = document.getElementById("gummyworms");
+  products.addEventListener("click", function(){
+    back.innerHTML = "Back <-";
+    products.style = "background-color: #FE9A2E;"
+    products.innerHTML = "";
+    popular.style = "background-color: #FE9A2E;"
+    popular.innerHTML = "";
+    welcome.innerHTML = "";
+    product1.innerHTML = "Gummy Worms";
+    product1.style = "background-color: #F5DA81;"
+    product1IMG.src = "https://spoonlighting.files.wordpress.com/2011/07/gummy-worms.jpg";
+
+  });
+  </script>
+</body>

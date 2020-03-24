@@ -1,0 +1,45 @@
+<doctype! html>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.module.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+  <style>
+  </style>
+  <div id="chosen">Click</div>
+  <script>
+  var c = document.getElementById("chosen");
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight, 0.1, 1000);
+  camera.position.z = 5;
+  var renderer = new THREE.WebGLRenderer({antialias: true});
+  renderer.setClearColor("#333");
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+    var geometrey = new THREE.BoxGeometry(1, 1, 1);
+  var material = new THREE.MeshLambertMaterial({color: 0xFFCC00});
+  var mesh = new THREE.Mesh(geometrey, material);
+  mesh.position.x = 0;
+  mesh.position.y = 0;
+  mesh.position.z = 0;
+
+  var xpos = 0;
+  scene.add(mesh);
+  var light = new THREE.PointLight(0xFFFFFF, 1.5, 1500);
+  light.position.set(25, 0, 25);
+  scene.add(light);
+
+  var render = function(){
+    requestAnimationFrame(render);
+
+
+    renderer.render(scene, camera);
+  }
+
+  render();
+
+  this.tl = new TimelineMax({paused: true});
+  this.tl.to(this.mesh.scale, 1, {x: 2, ease: Expo.easeOut});
+  let controls = new THREE.OrbitControls(camera);
+  </script>
+</body>

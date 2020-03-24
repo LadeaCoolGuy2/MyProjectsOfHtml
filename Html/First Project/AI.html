@@ -1,0 +1,31 @@
+<doctype! html>
+<body>
+  <p id="compsay"></p>
+
+<ul id="messages"></ul>
+<br>
+<input id="textbox" type="text">
+<button id="button">Start Texting</button>
+<script src="script.js"></script>
+
+<ruby>
+
+</ruby>
+  <script>
+  var compsay = document.getElementById("compsay");
+
+var messages = document.getElementById("messages");
+var textbox = document.getElementById("textbox");
+var button = document.getElementById("button");
+
+button.addEventListener("click", function(){
+
+     var newMessage = document.createElement("li");
+     newMessage.innerHTML = textbox.value;
+     messages.appendChild(newMessage);
+     textbox.value = "";
+});
+
+  </script>
+
+</body>
